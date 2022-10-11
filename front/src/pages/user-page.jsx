@@ -17,7 +17,7 @@ const UserPage = () => {
       fuelType: fuelTypeRef.current.value
     };
     const data = await post('carData', carData);
-    console.log('carData', data);
+    console.log('carData--', data);
 
     modelRef.current.value = '';
     colorRef.current.value = '';

@@ -28,6 +28,15 @@ for (let i = 0; i < 40; i++) {
   movies[2].seats.push(null)
 }
 
+const carSchema = require('../schemas/carSchema');
+
+async function addCar({ car }) {
+  const newCar = new carSchema({ car })
+
+  const carData = await newCar.save();
+  console.log('carData', carData);
+}
+
 module.exports = {
   indexInfo: (req, res) => {
     res.send({ movies });
@@ -40,8 +49,9 @@ module.exports = {
     res.send({ movies });
   },
   carInfo: (req, res) => {
-    console.log('req', req.body);
-    res.send(req.body)
+    console.log('req--', req.body);
+    addCar(req.body);
+    res.send(req.body);
   }
 
 
