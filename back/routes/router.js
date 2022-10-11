@@ -1,15 +1,12 @@
 const express = require('express');
 const router = express.Router();
 
-const controller = require('../controllers/mainController');
-const chatController = require('../controllers/chatController');
+const { indexInfo, reserve, carInfo } = require('../controllers/mainController');
 
-router.get('/info', controller.getInfo);
-router.get('/user/:name', controller.getNames);
-router.post('/createUser', controller.createUser);
-router.delete('/user/:name', controller.deleteUser);
+router.get('/indexInfo', indexInfo);
 
-router.post('/createMessage', chatController.createMessage);
-router.post('/deleteMessage', chatController.deleteMessage);
+router.get("/reserve/:cell/:movie", reserve);
+
+router.post("/carData", carInfo)
 
 module.exports = router; 

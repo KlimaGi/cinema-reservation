@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 const SingleMovie = ({ id, title, seatsReservated }) => {
   const nav = useNavigate();
   const movieReservation = () => {
-    nav(`/reservate/:${id}`)
+    nav(`/reservate/${id}`)
   }
 
   return (
