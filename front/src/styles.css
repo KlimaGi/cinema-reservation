@@ -41,9 +41,17 @@
     padding: 1rem;
     margin: 0.5rem;
     border: 1px solid #535387;
+   
 }
 .movie-container:hover {
   background-color:#d0d0e7;
+}
+
+.img-div{
+object-fit: contain;
+}
+.img{
+  width: 100%;
 }
 
 .selected{

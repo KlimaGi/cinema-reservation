@@ -30,7 +30,6 @@ for (let i = 0; i < 40; i++) {
 
 const carSchema = require('../schemas/carSchema');
 
-
 module.exports = {
   indexInfo: (req, res) => {
     res.send({ movies });

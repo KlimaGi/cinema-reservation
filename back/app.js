@@ -1,6 +1,4 @@
 const express = require('express');
-
-// express serveris
 const app = express();
 const cors = require('cors');
 const mongoose = require("mongoose")
@@ -20,31 +18,3 @@ app.listen(4000);
 
 app.use('/', mainRouter);
 
-const userSchema = require('./schemas/userSchema');
-const carSchema = require('./schemas/carSchema');
-
-async function addUser() {
-  const newUser = new userSchema({
-    username: "titas",
-    age: 30,
-    photo: 'httpdsfdsf'
-  })
-
-  const user = await newUser.save();
-  console.log('user', user);
-};
-
-// async function addCar() {
-//   const newCar = new carSchema({
-//     model: "titas",
-//     color: '30',
-//     year: 'httpdsfdsf',
-//     gasolineConsumption: 'sdfcds',
-//     fuelType: 'electric'
-//   })
-
-//   const car = await newCar.save();
-//   console.log('car', car);
-// }
-addUser();
-// addCar();
