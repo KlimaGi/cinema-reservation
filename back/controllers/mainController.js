@@ -30,12 +30,6 @@ for (let i = 0; i < 40; i++) {
 
 const carSchema = require('../schemas/carSchema');
 
-async function addCar({ car }) {
-  const newCar = new carSchema({ car })
-
-  const carData = await newCar.save();
-  console.log('carData', carData);
-}
 
 module.exports = {
   indexInfo: (req, res) => {
@@ -48,10 +42,14 @@ module.exports = {
 
     res.send({ movies });
   },
-  carInfo: (req, res) => {
+  carInfo: async (req, res) => {
     console.log('req--', req.body);
-    addCar(req.body);
-    res.send(req.body);
+    const newCar = new carSchema(req.body)
+    await newCar.save();
+    res.send({ car: newCar });
+  },
+  findCar: async (req, res) => {
+
   }
 
 
