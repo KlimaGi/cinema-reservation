@@ -43,13 +43,20 @@ module.exports = {
     res.send({ movies });
   },
   carInfo: async (req, res) => {
-    console.log('req--', req.body);
     const newCar = new carSchema(req.body)
     await newCar.save();
     res.send({ car: newCar });
   },
   findCar: async (req, res) => {
+    const { value, category } = req.params;
 
+    let obj = {};
+    obj[category] = value;
+
+    const cars = await carSchema.find(obj);
+    console.log('value, category', value, category);
+
+    res.send({ cars });
   }
 
 
