@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import MainContext from '../context/main-context';
 import Container from '../components/container';
 import Button from '../components/button';
 
@@ -56,6 +57,7 @@ const ReservationPage = () => {
     },
   ];
 
+  const { movies } = useContext(MainContext);
   let { id } = useParams();
 
   const [boxes, setBoxes] = useState([]);
@@ -86,8 +88,10 @@ const ReservationPage = () => {
   return (
 
     <div className="main fd-column">
-      <h3>movie {id}</h3>
+      <h3> {movies[id].title}</h3>
+
       <Container boxes={boxes} setSelectedBox={setSelectedBox} selectedBox={selectedBox} />
+
       <Button
         reserve={reserve}
         cancelReserve={cancelReserve}

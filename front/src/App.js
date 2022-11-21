@@ -6,8 +6,6 @@ import { get, post } from "./plugins/http";
 import IndexPage from './pages/index-page.jsx';
 import ReservationPage from './pages/reservation-page';
 
-import UserPage from './pages/user-page';
-
 
 function App() {
   const [movies, setMovies] = useState([]);
@@ -28,7 +26,7 @@ function App() {
             <Routes>
               <Route path='/' element={<IndexPage />} />
               <Route path='/reservate/:id' element={<ReservationPage />} />
-              <Route path='/user' element={<UserPage />} />
+
             </Routes>
 
           </BrowserRouter>

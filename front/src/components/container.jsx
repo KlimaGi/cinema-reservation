@@ -3,7 +3,6 @@ import ContainerItem from './container-item';
 
 const Container = ({ boxes, setSelectedBox, selectedBox }) => {
 
-
   return (
 
     <div className='container'>
