@@ -1,6 +1,7 @@
 const get = async (url) => {
   const res = await fetch("http://localhost:4000/" + url);
-  return await res.json();
+  const result = await res.json()
+  return result;
 }
 
 const post = async (url, data) => {
@@ -14,7 +15,8 @@ const post = async (url, data) => {
 
   const res = await fetch(`http://localhost:4000/${url}`, options);
   console.log(res.status);
-  return await res.json();
+  const result = await res.json()
+  return result;
 }
 
 export { get, post };

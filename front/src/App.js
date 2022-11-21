@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './styles.css';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import MainContext from './context/main-context';
-import { get, post } from "./plugins/http";
+import { get } from "./plugins/http";
 import IndexPage from './pages/index-page.jsx';
 import ReservationPage from './pages/reservation-page';
 
@@ -13,10 +13,10 @@ function App() {
   useEffect(() => {
     get('indexInfo').then(res => {
       setMovies(res.movies);
-      console.log('res', res);
     })
-  }, [])
+  }, []);
 
+  console.log('movies-app', movies);
   return (
     <>
       <h3>Movies sits reservation</h3>
@@ -26,7 +26,6 @@ function App() {
             <Routes>
               <Route path='/' element={<IndexPage />} />
               <Route path='/reservate/:id' element={<ReservationPage />} />
-
             </Routes>
 
           </BrowserRouter>

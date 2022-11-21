@@ -22,13 +22,11 @@ const movies = [
   }
 ]
 
-for (let i = 0; i < 40; i++) {
+for (let i = 0; i < 24; i++) {
   movies[0].seats.push(null)
   movies[1].seats.push(null)
   movies[2].seats.push(null)
 }
-
-const carSchema = require('../schemas/carSchema');
 
 module.exports = {
   indexInfo: (req, res) => {
@@ -41,22 +39,7 @@ module.exports = {
 
     res.send({ movies });
   },
-  carInfo: async (req, res) => {
-    const newCar = new carSchema(req.body)
-    await newCar.save();
-    res.send({ car: newCar });
-  },
-  findCar: async (req, res) => {
-    const { value, category } = req.params;
 
-    let obj = {};
-    obj[category] = value;
-
-    const cars = await carSchema.find(obj);
-    console.log('value, category', value, category);
-
-    res.send({ cars });
-  }
 
 
 }

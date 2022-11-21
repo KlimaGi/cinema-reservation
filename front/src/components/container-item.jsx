@@ -1,8 +1,8 @@
 import React from 'react';
 
-const ContainerItem = ({ item, xy, setSelectedBox, selectedBox }) => {
+const ContainerItem = ({ item, itemIndex, setSelectedBox, selectedBox }) => {
 
-  const selectedItem = xy === selectedBox
+  const selectedItem = itemIndex === selectedBox
     ? "container-item selected"
     : "container-item";
 
@@ -10,11 +10,10 @@ const ContainerItem = ({ item, xy, setSelectedBox, selectedBox }) => {
   return (
     <div
       className={selectedItem}
-      onClick={() => setSelectedBox(xy)}
-      selectedBox={selectedBox}
-      style={{ backgroundColor: item.color }}
+      onClick={() => setSelectedBox(itemIndex)}
+      style={{ backgroundColor: item === true ? 'powderblue' : '' }}
     >
-      {xy}
+      {itemIndex}
     </div>
   );
 }

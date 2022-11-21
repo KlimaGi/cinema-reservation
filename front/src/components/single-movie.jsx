@@ -7,13 +7,18 @@ const SingleMovie = ({ movie }) => {
     nav(`/reservate/${movie.id}`)
   }
 
+  const countSeats = movie.seats.reduce((acc, curr) => acc + Number(curr), 0);
+
   return (
-    <div onClick={movieReservation} className='movie-container'>
+    <div
+      onClick={movieReservation}
+      className='movie-container'>
+
       <div className='img-div'>
         <img className='img' src={movie.img} alt="" />
-        <h3>{movie.title}</h3>
       </div>
-      <p>seats {movie.seatsReservated}/40</p>
+      <h3>{movie.title}</h3>
+      <p>Seats: {countSeats}/{movie.seats.length}</p>
     </div>
   )
 }
