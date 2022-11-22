@@ -1,18 +1,14 @@
 import React from 'react'
 
-const Button = ({ reserve, cancelReserve, reservationStatus }) => {
+const Button = ({ func, text }) => {
 
   return (
     <div className='side-bar'>
-      {reservationStatus ?
-        <div>
-          <button className='button' onClick={cancelReserve}>Delete reservation</button>
-        </div>
-        :
-        <div>
-          <button className='button' onClick={reserve}>Make reservation</button>
-        </div>
-      }
+      <button
+        className='button'
+        onClick={func}>
+        {text}
+      </button>
 
     </div>
   )

@@ -17,13 +17,9 @@ const Container = ({ boxes }) => {
     setMovies(data.movies);
   }
 
-  function cancelReserve() {
-    //todo: cancel reserve req to back
-    // const boxesUpdate = [...movies[id].seats];
-    // const selected = boxesUpdate.find(x => x === selectedBox);
-    // selected.color = '';
-    // setBoxes(boxesUpdate);
-    console.log('cancel reserve');
+  const cancelReserve = async () => {
+    const data = await get(`cancelReserve/${selectedBox}/${id}`);
+    setMovies(data.movies);
   }
 
   return (
@@ -41,11 +37,17 @@ const Container = ({ boxes }) => {
         }
       </div>
 
-      <Button
-        reserve={reserve}
-        cancelReserve={cancelReserve}
-      // reservationStatus={reservationStatus}
-      />
+      <div className='d-flex js-con-center'>
+
+        <Button
+          func={reserve}
+          text='Make reservation'
+        />
+        <Button
+          func={cancelReserve}
+          text='Delete reservation'
+        />
+      </div>
     </div>
   )
 }

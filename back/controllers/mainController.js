@@ -39,7 +39,12 @@ module.exports = {
 
     res.send({ movies });
   },
+  cancelReserve: (req, res) => {
+    const { cell: cellIndex, movie: movieIndex } = req.params;
+    movies[movieIndex].seats[cellIndex] = null;
 
+    res.send({ movies });
+  }
 
 
 }

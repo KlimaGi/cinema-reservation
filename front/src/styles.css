@@ -13,6 +13,9 @@
 .d-flex {
   display: flex;
 }
+.js-con-center{
+  justify-content: center;
+}
 .fd-column{
   flex-direction: column;
 }
